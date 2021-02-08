@@ -1,0 +1,23 @@
+﻿@model Employee
+
+<form asp-controller="Employee" asp-action="AddEmployee" method="post">
+    <div>
+        <label asp-for="id" > EMPLOYEE ID</label>
+        <input asp-for="id" />
+    </div>
+
+    <div>
+        <label asp-for="name" > NAME </label>
+        <input asp-for="name" />
+    </div>
+
+    <div>
+        <label asp-for="Department" >DEPARTMENT</label>
+        <select asp-for="Department" asp-items="Html.GetEnumSelectList<Department>()" ></select>
+        </div>
+
+    <div>
+        <button type="submit"> ADD </button>
+    </div>
+
+</form>

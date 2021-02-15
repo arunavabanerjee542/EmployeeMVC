@@ -20,7 +20,7 @@ namespace EmployeeManagementMVC.Controllers
 
         public ActionResult Index()
         {
-            return this.RedirectToAction("AddEmployee","Employee");
+            return this.RedirectToAction("ShowDetails","Employee");
         }
 
         public IActionResult Privacy()

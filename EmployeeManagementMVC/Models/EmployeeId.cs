@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace EmployeeManagementMVC.Models
 {
-    public enum Department
+    public class EmployeeId
     {
-        Hr,Sales,SoftwareDevelopement
+        public int id { get; set; }
     }
 }

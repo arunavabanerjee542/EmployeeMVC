@@ -1,6 +1,8 @@
+using EmployeeManagementMVC.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -24,10 +26,12 @@ namespace EmployeeManagementMVC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+           services.AddDbContext<AppDbContext>(opt => opt.UseSqlServer(Configuration["ConnectionStrings:EmployeeDbConnection"]));
+            services.AddScoped<IEmployeeRepository, SqlEmployeeRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env,AppDbContext myApp)
         {
             if (env.IsDevelopment())
             {
@@ -41,6 +45,7 @@ namespace EmployeeManagementMVC
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            myApp.Database.EnsureCreated();   // vvi
 
             app.UseRouting();
 

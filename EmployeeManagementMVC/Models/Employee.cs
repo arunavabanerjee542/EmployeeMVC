@@ -11,7 +11,7 @@ namespace EmployeeManagementMVC.Models
         public int  id { get; set; }
         public string name { get; set; }
         public Department Department { get; set; }
-
+       // public string PhotoPath { get; set; }
 
     }
 }

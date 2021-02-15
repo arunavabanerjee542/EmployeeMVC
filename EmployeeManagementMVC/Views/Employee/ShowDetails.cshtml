@@ -1,11 +1,6 @@
 ﻿@model IEnumerable<Employee>
 
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>ID</th>
@@ -33,7 +28,10 @@
     </table>
 
     <div>
-        <a asp-action="AddEmployee"> ADD MORE EMPLOYEE </a>
+        <a asp-action="AddEmployee" class="btn btn-primary "> ADD MORE EMPLOYEE </a>
     </div>
-</body>
-</html>
+   <br/>
+    <div>
+        <a asp-action="DeleteEmployee" class="btn btn-primary "> Delete EMPLOYEE </a>
+    </div>
+    
